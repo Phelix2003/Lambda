@@ -3,6 +3,9 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace Lambda.Models
 {
@@ -16,9 +19,16 @@ namespace Lambda.Models
             // Ajouter les revendications personnalisées de l’utilisateur ici
             return userIdentity;
         }
+
+        public DateTime? DateOfRegistration { get; set; }
+        public DateTime? DateOfLastConnect { get; set; }
+        public DateTime? IsDeleted { get; set; }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+
+
+
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -29,5 +39,6 @@ namespace Lambda.Models
         {
             return new ApplicationDbContext();
         }
+
     }
 }

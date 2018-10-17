@@ -19,9 +19,12 @@ namespace Lambda
         public Task SendAsync(IdentityMessage message)
         {
             // Indiquez votre service de messagerie ici pour envoyer un e-mail.
+             
             return Task.FromResult(0);
         }
     }
+
+
 
     public class SmsService : IIdentityMessageService
     {

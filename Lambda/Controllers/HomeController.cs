@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using Lambda.Models;
 
 namespace Lambda.Controllers
 {
@@ -14,13 +15,16 @@ namespace Lambda.Controllers
         public ActionResult Index()
         {
 
+
             // If the user is logged in let's tag its last activity.
             var UserManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var user = UserManager.FindById(User.Identity.GetUserId());
             if (user != null)
             {
                 user.DateOfLastConnect = DateTime.Now;
-                UserManager.Update(user);
+                var result = await UserManager.UpdateAsync(user);
+            https://docs.microsoft.com/en-us/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity#architecture
+
 
             }
 

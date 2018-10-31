@@ -22,8 +22,8 @@ namespace Lambda.Controllers
             if (user != null)
             {
                 user.DateOfLastConnect = DateTime.Now;
-                var result = await UserManager.UpdateAsync(user);
-            https://docs.microsoft.com/en-us/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity#architecture
+                var result = UserManager.Update(user);
+            //https://docs.microsoft.com/en-us/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity#architecture
 
 
             }
